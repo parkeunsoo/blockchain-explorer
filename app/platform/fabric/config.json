@@ -3,22 +3,58 @@
     "network-1": {
       "version": "1.0",
       "clients": {
-        "client-1": {
+        "client1": {
           "tlsEnable": true,
-          "organization": "Org1MSP",
-          "channel": "mychannel",
+          "organization": "Org1",
+          "channel": "seasall",
           "credentialStore": {
             "path": "./tmp/credentialStore_Org1/credential",
             "cryptoStore": {
               "path": "./tmp/credentialStore_Org1/crypto"
             }
           }
+        },
+        "client2": {
+          "tlsEnable": true,
+          "organization": "Org2",
+          "channel": "seasall",
+          "credentialStore": {
+            "path": "./tmp/credentialStore_Org2/credential",
+            "cryptoStore": {
+              "path": "./tmp/credentialStore_Org2/crypto"
+            }
+          }
+        },
+        "client3": {
+          "tlsEnable": true,
+          "organization": "Org3",
+          "channel": "seasall",
+          "credentialStore": {
+            "path": "./tmp/credentialStore_Org3/credential",
+            "cryptoStore": {
+              "path": "./tmp/credentialStore_Org3/crypto"
+            }
+          }
+        },
+        "client4": {
+          "tlsEnable": true,
+          "organization": "Org4",
+          "channel": "seasall",
+          "credentialStore": {
+            "path": "./tmp/credentialStore_Org4/credential",
+            "cryptoStore": {
+              "path": "./tmp/credentialStore_Org4/crypto"
+            }
+          }
         }
       },
       "channels": {
-        "mychannel": {
+        "seasall": {
           "peers": {
-            "peer0.org1.example.com": {}
+            "peer0.org1.checker.com": {},
+            "peer0.org2.checker.com": {},
+            "peer0.org3.checker.com": {},
+            "peer0.org4.checker.com": {}
           },
           "connection": {
             "timeout": {
@@ -32,58 +68,121 @@
         }
       },
       "organizations": {
-        "Org1MSP": {
+        "Org1": {
           "mspid": "Org1MSP",
           "fullpath": false,
           "adminPrivateKey": {
-            "path": "/fabric-path/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore"
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org1.checker.com/users/Admin@org1.checker.com/msp/keystore"
           },
           "signedCert": {
-            "path": "/fabric-path/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts"
-          }
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org1.checker.com/users/Admin@org1.checker.com/msp/signcerts"
+          },
+          "peers": ["peer0.org1.checker.com"]
         },
-        "Org2MSP": {
+        "Org2": {
           "mspid": "Org2MSP",
           "adminPrivateKey": {
-            "path": "/fabric-path/fabric-samples/first-network/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore"
-          }
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org2.checker.com/users/Admin@org2.checker.com/msp/keystore"
+          },
+          "signedCert": {
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org2.checker.com/users/Admin@org2.checker.com/msp/signcerts"
+          },
+          "peers": ["peer0.org2.checker.com"]
         },
-        "OrdererMSP": {
+        "Org3": {
+          "mspid": "Org3MSP",
+          "adminPrivateKey": {
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org3.checker.com/users/Admin@org3.checker.com/msp/keystore"
+          },
+          "signedCert": {
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org3.checker.com/users/Admin@org3.checker.com/msp/signcerts"
+          },
+          "peers": ["peer0.org3.checker.com"]
+        },
+        "Org4": {
+          "mspid": "Org4MSP",
+          "adminPrivateKey": {
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org4.checker.com/users/Admin@org4.checker.com/msp/keystore"
+          },
+          "signedCert": {
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org4.checker.com/users/Admin@org4.checker.com/msp/signcerts"
+          },
+          "peers": ["peer0.org4.checker.com"]
+        },
+        "Orderer": {
           "mspid": "OrdererMSP",
           "adminPrivateKey": {
-            "path": "/fabric-path/fabric-samples/first-network/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore"
+            "path": "/home/eunsoo/checker-network/crypto-config/ordererOrganizations/checker.com/users/Admin@checker.com/msp/keystore"
+          },
+          "signedCert": {
+            "path": "/home/eunsoo/checker-network/crypto-config/ordererOrganizations/checker.com/users/Admin@checker.com/msp/signcerts"
           }
         }
       },
       "peers": {
-        "peer0.org1.example.com": {
+        "peer0.org1.checker.com": {
           "tlsCACerts": {
-            "path": "/fabric-path/fabric-samples/first-network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org1.checker.com/peers/peer0.org1.checker.com/tls/ca.crt"
           },
           "url": "grpcs://localhost:7051",
           "eventUrl": "grpcs://localhost:7053",
           "grpcOptions": {
-            "ssl-target-name-override": "peer0.org1.example.com"
+            "ssl-target-name-override": "peer0.org1.checker.com"
           }
         },
-        "peer1.org1.example.com": {
-          "url": "grpcs://localhost:8051"
+        "peer0.org2.checker.com": {
+          "tlsCACerts": {
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org2.checker.com/peers/peer0.org2.checker.com/tls/ca.crt"
+          },
+          "url": "grpcs://localhost:8051",
+          "eventUrl": "grpcs://localhost:8053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.org2.checker.com"
+          }
         },
-        "peer0.org2.example.com": {
-          "url": "grpcs://localhost:9051"
+        "peer0.org3.checker.com": {
+          "tlsCACerts": {
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org3.checker.com/peers/peer0.org3.checker.com/tls/ca.crt"
+          },
+          "url": "grpcs://localhost:9051",
+          "eventUrl": "grpcs://localhost:9053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.org3.checker.com"
+          }
         },
-        "peer1.org2.example.com": {
-          "url": "grpcs://localhost:10051"
+        "peer0.org4.checker.com": {
+          "tlsCACerts": {
+            "path": "/home/eunsoo/checker-network/crypto-config/peerOrganizations/org4.checker.com/peers/peer0.org4.checker.com/tls/ca.crt"
+          },
+          "url": "grpcs://localhost:10051",
+          "eventUrl": "grpcs://localhost:10053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.org4.checker.com"
+          }
         }
       },
       "orderers": {
-        "orderer.example.com": {
-          "url": "grpcs://localhost:7050"
+        "orderer0.checker.com": {
+          "url": "grpcs://localhost:7050",
+          "tlsCACerts": {
+            "path": "/home/eunsoo/checker-network/crypto-config/ordererOrganizations/checker.com/orderers/orderer0.checker.com/msp/tlscacerts/tlsca.checker.com-cert.pem"
+          }
+        },
+        "orderer1.checker.com": {
+          "url": "grpcs://localhost:17050",
+          "tlsCACerts": {
+            "path": "/home/eunsoo/checker-network/crypto-config/ordererOrganizations/checker.com/orderers/orderer1.checker.com/msp/tlscacerts/tlsca.checker.com-cert.pem"
+          }
+        },
+        "orderer2.checker.com": {
+          "url": "grpcs://localhost:27050",
+          "tlsCACerts": {
+            "path": "/home/eunsoo/checker-network/crypto-config/ordererOrganizations/checker.com/orderers/orderer2.checker.com/msp/tlscacerts/tlsca.checker.com-cert.pem"
+          }
         }
       }
-    },
-    "network-2": {}
+    }
   },
-  "configtxgenToolPath": "/fabric-path/fabric-samples/bin",
+  "configtxgenToolPath": "/home/eunsoo/checker-network",
   "license": "Apache-2.0"
 }

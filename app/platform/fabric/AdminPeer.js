@@ -185,7 +185,8 @@ class AdminPeer {
         if (self._peer._options['grpc.default_authority']) {
           server_hostname = self._peer._options['grpc.default_authority'];
         } else {
-          server_hostname = self._peer._options['grpc.ssl_target_name_override'];
+          server_hostname =
+            self._peer._options['grpc.ssl_target_name_override'];
         }
         if (err) {
           logger.debug(
@@ -199,6 +200,8 @@ class AdminPeer {
             resolve({ status: 'DOWN', server_hostname });
           }
         } else {
+          console.log(self._peer._url);
+          console.log(serverStatus);
           logger.debug(
             'Received GetStatus response from peer %s: status - %j',
             self._peer._url,

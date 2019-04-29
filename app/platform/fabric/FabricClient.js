@@ -167,7 +167,7 @@ class FabricClient {
     const default_channel_name = client_config.client.channel;
     const default_peer_name = Object.keys(
       client_config.channels[default_channel_name].peers
-    )[0];
+    )[1];
 
     if (channels.length == 0) {
       throw new ExplorerError(explorer_mess.error.ERROR_2003);

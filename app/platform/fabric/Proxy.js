@@ -44,21 +44,32 @@ class Proxy {
   }
 
   async getPeersStatus(channel_genesis_hash) {
-    const client = await this.platform.getClient();
-    const channel = client.getDefaultChannel();
+    var client = 'client';
     const nodes = await this.persistence
       .getMetricService()
       .getPeerList(channel_genesis_hash);
-    let discover_results;
-    if (client.status) {
-      try {
-        discover_results = await client.initializeChannelFromDiscover(
-          channel._name
-        );
-      } catch (e) {}
-    }
     const peers = [];
     for (const node of nodes) {
+      if (node.mspid == 'Org1MSP')
+        client = await this.platform.getClient('network-1', 'client1');
+      else if (node.mspid == 'Org2MSP')
+        client = await this.platform.getClient('network-1', 'client2');
+      else if (node.mspid == 'Org3MSP')
+        client = await this.platform.getClient('network-1', 'client3');
+      else if (node.mspid == 'Org4MSP')
+        client = await this.platform.getClient('network-1', 'client4');
+
+      const channel = client.getDefaultChannel();
+
+      let discover_results;
+      if (client.status) {
+        try {
+          discover_results = await client.initializeChannelFromDiscover(
+            channel._name
+          );
+        } catch (e) {}
+      }
+
       if (node.peer_type === 'PEER') {
         const res = await client.getPeerStatus(node);
         node.status = res.status ? res.status : 'DOWN';
@@ -97,8 +108,8 @@ class Proxy {
         channel.channelname
       );
       if (
-        channel_genesis_hash
-        && channel_genesis_hash === channel.channel_genesis_hash
+        channel_genesis_hash &&
+        channel_genesis_hash === channel.channel_genesis_hash
       ) {
         currentchannels.push(channel);
       }
@@ -204,8 +215,8 @@ class Proxy {
         );
       }
     } else if (
-      fabric_const.NOTITY_TYPE_UPDATECHANNEL === msg.notify_type
-      || fabric_const.NOTITY_TYPE_CHAINCODE === msg.notify_type
+      fabric_const.NOTITY_TYPE_UPDATECHANNEL === msg.notify_type ||
+      fabric_const.NOTITY_TYPE_CHAINCODE === msg.notify_type
     ) {
       // update channel details in parent
       if (msg.network_name && msg.client_name) {

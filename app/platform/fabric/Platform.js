@@ -32,6 +32,7 @@ class Platform {
     this.network_configs;
     this.syncType;
     this.explorerListeners = [];
+    this.number = 0;
   }
 
   async initialize() {
@@ -50,8 +51,8 @@ class Platform {
     await this.buildClients(network_configs);
 
     if (
-      this.networks.size == 0
-      && this.networks.get(this.defaultNetwork).size == 0
+      this.networks.size == 0 &&
+      this.networks.get(this.defaultNetwork).size == 0
     ) {
       logger.error(
         '************* There is no client found for Hyperledger fabric platform *************'
@@ -118,17 +119,17 @@ class Platform {
   }
 
   initializeListener(syncconfig) {
-    for (const [network_name, clients] of this.networks.entries()) {
-      for (const [client_name, client] of clients.entries()) {
-        if (this.getClient(network_name, client_name).getStatus()) {
-          const explorerListener = new ExplorerListener(this, syncconfig);
-          explorerListener.initialize([network_name, client_name, '1']);
-          explorerListener.send('Successfully send a message to child process');
-          this.explorerListeners.push(explorerListener);
-        }
-      }
+    // for (const [network_name, clients] of this.networks.entries()) {
+    //   for (const [client_name, client] of clients.entries()) {
+    if (this.getClient('network-1', 'client1').getStatus()) {
+      const explorerListener = new ExplorerListener(this, syncconfig);
+      explorerListener.initialize(['network-1', 'client1', '1']);
+      explorerListener.send('Successfully send a message to child process');
+      this.explorerListeners.push(explorerListener);
     }
   }
+  //   }
+  // }
 
   setPersistenceService() {
     // setting platfrom specific CRUDService and MetricService
@@ -192,7 +193,10 @@ class Platform {
   setDefaultClient(defaultClient) {
     this.defaultClient = defaultClient;
   }
-
+  getNumber() {
+    this.number++;
+    return this.number;
+  }
   async destroy() {
     console.log(
       '<<<<<<<<<<<<<<<<<<<<<<<<<< Closing explorer  >>>>>>>>>>>>>>>>>>>>>'

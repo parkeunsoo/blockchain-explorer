@@ -32,7 +32,6 @@ class Platform {
     this.network_configs;
     this.syncType;
     this.explorerListeners = [];
-    this.number = 0;
   }
 
   async initialize() {
@@ -192,10 +191,6 @@ class Platform {
 
   setDefaultClient(defaultClient) {
     this.defaultClient = defaultClient;
-  }
-  getNumber() {
-    this.number++;
-    return this.number;
   }
   async destroy() {
     console.log(

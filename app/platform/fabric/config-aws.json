@@ -1,0 +1,112 @@
+{
+  "network-configs": {
+    "network-1": {
+      "version": "1.0",
+      "clients": {
+        "client1": {
+          "tlsEnable": true,
+          "organization": "Org1",
+          "channel": "seasall",
+          "credentialStore": {
+            "path": "./tmp/credentialStore_Org1/credential",
+            "cryptoStore": {
+              "path": "./tmp/credentialStore_Org1/crypto"
+            }
+          }
+        },
+        "client2": {
+          "tlsEnable": true,
+          "organization": "Org2",
+          "channel": "seasall",
+          "credentialStore": {
+            "path": "./tmp/credentialStore_Org2/credential",
+            "cryptoStore": {
+              "path": "./tmp/credentialStore_Org2/crypto"
+            }
+          }
+        }
+      },
+      "channels": {
+        "seasall": {
+          "peers": {
+            "peer0.org1.checker.com": {},
+            "peer0.org2.checker.com": {}
+          },
+          "connection": {
+            "timeout": {
+              "peer": {
+                "endorser": "6000",
+                "eventHub": "6000",
+                "eventReg": "6000"
+              }
+            }
+          }
+        }
+      },
+      "organizations": {
+        "Org1": {
+          "mspid": "Org1MSP",
+          "fullpath": false,
+          "adminPrivateKey": {
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org1.checker.com/users/Admin@org1.checker.com/msp/keystore"
+          },
+          "signedCert": {
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org1.checker.com/users/Admin@org1.checker.com/msp/signcerts"
+          },
+          "peers": ["peer0.org1.checker.com"]
+        },
+        "Org2": {
+          "mspid": "Org2MSP",
+          "adminPrivateKey": {
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org2.checker.com/users/Admin@org2.checker.com/msp/keystore"
+          },
+          "signedCert": {
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org2.checker.com/users/Admin@org2.checker.com/msp/signcerts"
+          },
+          "peers": ["peer0.org2.checker.com"]
+        },
+        "Orderer": {
+          "mspid": "OrdererMSP",
+          "adminPrivateKey": {
+            "path": "/home/ubuntu/aws-checker/crypto-config/ordererOrganizations/checker.com/users/Admin@checker.com/msp/keystore"
+          },
+          "signedCert": {
+            "path": "/home/ubuntu/aws-checker/crypto-config/ordererOrganizations/checker.com/users/Admin@checker.com/msp/signcerts"
+          }
+        }
+      },
+      "peers": {
+        "peer0.org1.checker.com": {
+          "tlsCACerts": {
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org1.checker.com/peers/peer0.org1.checker.com/tls/ca.crt"
+          },
+          "url": "grpcs://localhost:7051",
+          "eventUrl": "grpcs://localhost:7053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.org1.checker.com"
+          }
+        },
+        "peer0.org2.checker.com": {
+          "tlsCACerts": {
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org2.checker.com/peers/peer0.org2.checker.com/tls/ca.crt"
+          },
+          "url": "grpcs://localhost:8051",
+          "eventUrl": "grpcs://localhost:8053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.org2.checker.com"
+          }
+        }
+      },
+      "orderers": {
+        "orderer0.checker.com": {
+          "url": "grpcs://localhost:7050",
+          "tlsCACerts": {
+            "path": "/home/ubuntu/aws-checker/crypto-config/ordererOrganizations/checker.com/orderers/orderer.checker.com/msp/tlscacerts/tlsca.checker.com-cert.pem"
+          }
+        }
+      }
+    }
+  },
+  "configtxgenToolPath": "/home/ubuntu/aws-checker",
+  "license": "Apache-2.0"
+}

@@ -200,8 +200,6 @@ class AdminPeer {
             resolve({ status: 'DOWN', server_hostname });
           }
         } else {
-          console.log(self._peer._url);
-          console.log(serverStatus);
           logger.debug(
             'Received GetStatus response from peer %s: status - %j',
             self._peer._url,

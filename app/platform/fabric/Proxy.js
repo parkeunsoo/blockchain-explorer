@@ -44,20 +44,19 @@ class Proxy {
   }
 
   async getPeersStatus(channel_genesis_hash) {
-    var client = 'client';
     const nodes = await this.persistence
       .getMetricService()
       .getPeerList(channel_genesis_hash);
     const peers = [];
     for (const node of nodes) {
       if (node.mspid == 'Org1MSP')
-        client = await this.platform.getClient('network-1', 'client1');
+        var client = await this.platform.getClient('network-1', 'client1');
       else if (node.mspid == 'Org2MSP')
-        client = await this.platform.getClient('network-1', 'client2');
+        var client = await this.platform.getClient('network-1', 'client2');
       else if (node.mspid == 'Org3MSP')
-        client = await this.platform.getClient('network-1', 'client3');
+        var client = await this.platform.getClient('network-1', 'client3');
       else if (node.mspid == 'Org4MSP')
-        client = await this.platform.getClient('network-1', 'client4');
+        var client = await this.platform.getClient('network-1', 'client4');
 
       const channel = client.getDefaultChannel();
 

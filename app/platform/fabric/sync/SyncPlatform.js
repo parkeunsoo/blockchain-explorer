@@ -37,13 +37,15 @@ class SyncPlatform {
 
   async initialize(args) {
     const _self = this;
-
+    var problem = null;
     logger.debug(
       '******* Initialization started for child client process %s ******',
       this.client_name
     );
 
     setTimeout(() => {
+      clearInterval(problem);
+      this.eventHub.disconnectChannelEventHub('seasall');
       this.initialize(args);
     }, 60000);
 
@@ -145,7 +147,7 @@ class SyncPlatform {
       const time = parseInt(blocksSyncTime, 10);
       if (!isNaN(time)) {
         // this.blocksSyncTime = 1 * 10 * 1000;
-        this.blocksSyncTime = time * 60 * 1000;
+        this.blocksSyncTime = 5000;
       }
     }
   }

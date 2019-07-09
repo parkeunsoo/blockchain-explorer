@@ -72,57 +72,57 @@
           "mspid": "Org1MSP",
           "fullpath": false,
           "adminPrivateKey": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org1.checker.com/users/Admin@org1.checker.com/msp/keystore"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org1.checker.com/users/Admin@org1.checker.com/msp/keystore"
           },
           "signedCert": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org1.checker.com/users/Admin@org1.checker.com/msp/signcerts"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org1.checker.com/users/Admin@org1.checker.com/msp/signcerts"
           },
           "peers": ["peer0.org1.checker.com"]
         },
         "Org2": {
           "mspid": "Org2MSP",
           "adminPrivateKey": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org2.checker.com/users/Admin@org2.checker.com/msp/keystore"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org2.checker.com/users/Admin@org2.checker.com/msp/keystore"
           },
           "signedCert": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org2.checker.com/users/Admin@org2.checker.com/msp/signcerts"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org2.checker.com/users/Admin@org2.checker.com/msp/signcerts"
           },
           "peers": ["peer0.org2.checker.com"]
         },
         "Org3": {
           "mspid": "Org3MSP",
           "adminPrivateKey": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org3.checker.com/users/Admin@org3.checker.com/msp/keystore"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org3.checker.com/users/Admin@org3.checker.com/msp/keystore"
           },
           "signedCert": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org3.checker.com/users/Admin@org3.checker.com/msp/signcerts"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org3.checker.com/users/Admin@org3.checker.com/msp/signcerts"
           },
           "peers": ["peer0.org3.checker.com"]
         },
         "Org4": {
           "mspid": "Org4MSP",
           "adminPrivateKey": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org4.checker.com/users/Admin@org4.checker.com/msp/keystore"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org4.checker.com/users/Admin@org4.checker.com/msp/keystore"
           },
           "signedCert": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org4.checker.com/users/Admin@org4.checker.com/msp/signcerts"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org4.checker.com/users/Admin@org4.checker.com/msp/signcerts"
           },
           "peers": ["peer0.org4.checker.com"]
         },
         "Orderer": {
           "mspid": "OrdererMSP",
           "adminPrivateKey": {
-            "path": "/home/checker/checker-network/crypto-config/ordererOrganizations/checker.com/users/Admin@checker.com/msp/keystore"
+            "path": "/home/ubuntu/aws-checker/crypto-config/ordererOrganizations/checker.com/users/Admin@checker.com/msp/keystore"
           },
           "signedCert": {
-            "path": "/home/checker/checker-network/crypto-config/ordererOrganizations/checker.com/users/Admin@checker.com/msp/signcerts"
+            "path": "/home/ubuntu/aws-checker/crypto-config/ordererOrganizations/checker.com/users/Admin@checker.com/msp/signcerts"
           }
         }
       },
       "peers": {
         "peer0.org1.checker.com": {
           "tlsCACerts": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org1.checker.com/peers/peer0.org1.checker.com/tls/ca.crt"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org1.checker.com/peers/peer0.org1.checker.com/tls/ca.crt"
           },
           "url": "grpcs://localhost:7051",
           "eventUrl": "grpcs://localhost:7053",
@@ -132,7 +132,7 @@
         },
         "peer0.org2.checker.com": {
           "tlsCACerts": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org2.checker.com/peers/peer0.org2.checker.com/tls/ca.crt"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org2.checker.com/peers/peer0.org2.checker.com/tls/ca.crt"
           },
           "url": "grpcs://localhost:8051",
           "eventUrl": "grpcs://localhost:8053",
@@ -142,7 +142,7 @@
         },
         "peer0.org3.checker.com": {
           "tlsCACerts": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org3.checker.com/peers/peer0.org3.checker.com/tls/ca.crt"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org3.checker.com/peers/peer0.org3.checker.com/tls/ca.crt"
           },
           "url": "grpcs://localhost:9051",
           "eventUrl": "grpcs://localhost:9053",
@@ -152,7 +152,7 @@
         },
         "peer0.org4.checker.com": {
           "tlsCACerts": {
-            "path": "/home/checker/checker-network/crypto-config/peerOrganizations/org4.checker.com/peers/peer0.org4.checker.com/tls/ca.crt"
+            "path": "/home/ubuntu/aws-checker/crypto-config/peerOrganizations/org4.checker.com/peers/peer0.org4.checker.com/tls/ca.crt"
           },
           "url": "grpcs://localhost:10051",
           "eventUrl": "grpcs://localhost:10053",
@@ -162,27 +162,18 @@
         }
       },
       "orderers": {
-        "orderer0.checker.com": {
+        "orderer.checker.com": {
           "url": "grpcs://localhost:7050",
           "tlsCACerts": {
-            "path": "/home/checker/checker-network/crypto-config/ordererOrganizations/checker.com/orderers/orderer0.checker.com/msp/tlscacerts/tlsca.checker.com-cert.pem"
-          }
-        },
-        "orderer1.checker.com": {
-          "url": "grpcs://localhost:17050",
-          "tlsCACerts": {
-            "path": "/home/checker/checker-network/crypto-config/ordererOrganizations/checker.com/orderers/orderer1.checker.com/msp/tlscacerts/tlsca.checker.com-cert.pem"
-          }
-        },
-        "orderer2.checker.com": {
-          "url": "grpcs://localhost:27050",
-          "tlsCACerts": {
-            "path": "/home/checker/checker-network/crypto-config/ordererOrganizations/checker.com/orderers/orderer2.checker.com/msp/tlscacerts/tlsca.checker.com-cert.pem"
+            "path": "/home/ubuntu/aws-checker/crypto-config/ordererOrganizations/checker.com/orderers/orderer.checker.com/msp/tlscacerts/tlsca.checker.com-cert.pem"
+          },
+          "grpcOptions": {
+            "ssl-target-name-override": "orderer.checker.com"
           }
         }
       }
     }
   },
-  "configtxgenToolPath": "/home/checker/checker-network",
+  "configtxgenToolPath": "/home/ubuntu/aws-checker",
   "license": "Apache-2.0"
 }

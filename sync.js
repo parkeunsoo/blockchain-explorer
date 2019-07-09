@@ -53,7 +53,6 @@ process.on('unhandledRejection', up => {
     console.log(up);
   }
   shutDown();
-  start();
 });
 process.on('uncaughtException', up => {
   console.log(
@@ -65,7 +64,6 @@ process.on('uncaughtException', up => {
     console.log(up);
   }
   shutDown();
-  start();
 });
 
 // listen for TERM signal .e.g. kill

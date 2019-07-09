@@ -35,9 +35,6 @@ describe('GET /api/chaincode/:channel', () => {
     request.get(
       `${`${base}` + '/api/chaincode/'}${config.channel}`,
       (err, body) => {
-        console.log('111111111111111');
-        console.log(body);
-        console.log('222222222222222');
         body = JSON.parse(body);
         body.should.include.keys('status', 'chaincode');
         body.status.should.eql(200);

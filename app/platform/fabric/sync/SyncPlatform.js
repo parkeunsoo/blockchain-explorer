@@ -37,13 +37,15 @@ class SyncPlatform {
 
   async initialize(args) {
     const _self = this;
-
+    var problem = null;
     logger.debug(
       '******* Initialization started for child client process %s ******',
       this.client_name
     );
 
     setTimeout(() => {
+      clearInterval(problem);
+      this.eventHub.disconnectChannelEventHub('seasall');
       this.initialize(args);
     }, 60000);
 
@@ -115,7 +117,7 @@ class SyncPlatform {
 
       // setting interval for validating any missing block from the current client ledger
       // set blocksSyncTime property in platform config.json in minutes
-      setInterval(() => {
+      problem = setInterval(() => {
         _self.isChannelEventHubConnected();
       }, this.blocksSyncTime);
       logger.debug(

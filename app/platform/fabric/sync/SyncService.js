@@ -147,6 +147,7 @@ class SyncServices {
     let eventurl = '';
     let requesturl = peer.endpoint;
     const host_port = peer.endpoint.split(':');
+
     if (
       client.client_config.peers &&
       client.client_config.peers[host_port[0]] &&

@@ -58,7 +58,6 @@ class Proxy {
         client = await this.platform.getClient('network-1', 'client3');
       else if (node.mspid == 'Org4MSP')
         client = await this.platform.getClient('network-1', 'client4');
-
       const channel = client.getDefaultChannel();
 
       let discover_results;

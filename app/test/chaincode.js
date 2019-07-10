@@ -29,7 +29,7 @@ describe('GET /api/chaincode/:channel', () => {
     request.put.restore();
     request.delete.restore();
   });
-  it('should return chaincode ', (done) => {
+  it('should return chaincode ', done => {
     const obj = chaincode;
     this.get.yields(null, JSON.stringify(obj));
     request.get(

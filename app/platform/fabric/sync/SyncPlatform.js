@@ -147,7 +147,7 @@ class SyncPlatform {
       const time = parseInt(blocksSyncTime, 10);
       if (!isNaN(time)) {
         // this.blocksSyncTime = 1 * 10 * 1000;
-        this.blocksSyncTime = time * 60 * 1000;
+        this.blocksSyncTime = 5000;
       }
     }
   }
